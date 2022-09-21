@@ -23,6 +23,9 @@
 #include "Poco/Net/ICMPPacketImpl.h"
 #include <cstddef>
 
+#ifdef __MINGW32__
+#undef TIMESTAMP_REQUEST
+#endif
 
 namespace Poco {
 namespace Net {
