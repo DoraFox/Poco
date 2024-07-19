@@ -135,7 +135,10 @@ public:
 		/// (100 nanosecond intervals since midnight,
 		/// October 15, 1582).
 		
-	static TimeDiff resolution();
+    static inline TimeDiff resolution()
+    {
+        return 1000000;
+    }
 		/// Returns the resolution in units per second.
 		/// Since the timestamp has microsecond resolution,
 		/// the returned value is always 1000000.
@@ -251,12 +254,6 @@ inline bool Timestamp::isElapsed(Timestamp::TimeDiff interval) const
 	Timestamp now;
 	Timestamp::TimeDiff diff = now - *this;
 	return diff >= interval;
-}
-
-
-inline Timestamp::TimeDiff Timestamp::resolution()
-{
-	return 1000000;
 }
 
 
